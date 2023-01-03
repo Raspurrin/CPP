@@ -7,14 +7,14 @@ int main(int argc, char const *argv[])
 
 	while (true)
 	{
-		std::cout << "Please enter a command: ADD, SEARCH or EXIT" << std::endl;
+		std::cout << "Please enter a command: ADD, SEARCH or EXIT: ";
 		std::cin >> input;
 
-		if (input == "EXIT");
+		if (input == "EXIT")
 			break;
-		if (input == "SEARCH");
+		else if (input == "SEARCH")
 			phonebook.search();
-		if (input == "ADD");
+		else if (input == "ADD")
 			phonebook.add();
 	}
 	return (0);

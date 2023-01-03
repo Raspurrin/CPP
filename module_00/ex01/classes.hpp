@@ -13,7 +13,7 @@ class Contact
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
-		int32_t	phonenumber;
+		std::string	phonenumber;
 		std::string	darkest_secret;
 };
 

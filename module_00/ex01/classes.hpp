@@ -20,12 +20,12 @@ class Contact
 class Phonebook
 {
 	public:
-		Phonebook();
-		~Phonebook();
-
-	public:
 		void	add(void);
 		void	search(void);
+
+	private:
+		Phonebook();
+		~Phonebook();
 
 	private:
 		Contact 	contacts[8];

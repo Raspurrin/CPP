@@ -23,7 +23,6 @@ class Phonebook
 		void	add(void);
 		void	search(void);
 
-	private:
 		Phonebook();
 		~Phonebook();
 

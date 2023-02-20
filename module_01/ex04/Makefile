@@ -1,7 +1,7 @@
-SRCS = megaphone.cpp
+SRCS = 	replace.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = megaphone
+NAME = replace
 CC = g++
 
 ifdef DEBUG
@@ -16,7 +16,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean: 
 	@rm -rf $(OBJS)

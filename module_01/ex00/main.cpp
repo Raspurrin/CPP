@@ -1,5 +1,11 @@
+#include "Zombie.hpp"
+
 int main(int argc, char const *argv[])
 {
-	/* code */
+	Zombie *zombie; 
+	zombie = zombie->newZombie("HiMark");
+	zombie->announce();
+
+	delete(zombie);
 	return 0;
 }

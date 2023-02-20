@@ -1,10 +1,8 @@
 SRCS = 	main.cpp \
-		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		Zombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = phonebook
+NAME = BraiiiiiiinnnzzzZ
 CC = g++
 
 ifdef DEBUG

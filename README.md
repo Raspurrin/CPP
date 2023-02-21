@@ -9,3 +9,8 @@ We have to do tons of small exercises to get familiar with C++ including:
 |02| Orthodox Canonical Form | fixed-point number class | operator overloading | trigonometry with fixed class
 |03| Inheritance | Inheritance | Inheritance | Inheritance
 |04| Polymorphism | cats/dogs?? |Abstract class | Interface
+|05| repition and exceptions |
+|06| casts | 
+|07| templates |
+|08| templated containers, iteratiors, algorithms|
+|09| practical usage of containers |

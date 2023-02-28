@@ -4,8 +4,8 @@ void	Harl::complain(std::string level)
 {
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (this->function_names[i] == level)
-			return ((this->*Harl::func_arr[i])());
+		if (function_names[i] == level)
+			return ((this->*func_arr[i])());
 	}
 	std::cout << "couldn't find that level" << std::endl;
 }

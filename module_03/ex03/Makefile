@@ -1,8 +1,11 @@
-SRCS = 	main.cpp \
-		Fixed.cpp
+SRCS = 	ClapTrap.cpp \
+		FragTrap.cpp \
+		ScavTrap.cpp \
+		DiamondTrap.cpp \
+		main.cpp
 OBJS = $(SRCS:.cpp=.o)
-CFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = fixed
+CFLAGS = -Wall -Werror -Wextra -g -std=c++98
+NAME = claptrap
 CC = g++
 
 ifdef DEBUG

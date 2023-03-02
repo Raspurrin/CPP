@@ -73,11 +73,11 @@ ClapTrap::ClapTrap(void) :
 	max_points(10), \
 	name("Bartholomew Paddington the 3rd")
 {
-
-	std::cout << SKY << "ClapTrap's default constructor is called" << RESET << std::endl;
+	std::cout << "ClapTrap: hitpoints: " << this->hitpoints << " energy: " << energy_points << " attack dmg: " << attack_dmg << " hitpoints: " << hitpoints << std::endl;
+	std::cout << ON_RED << "ClapTrap's default constructor is called" << RESET << std::endl;
 }
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << SKY << name << "'s destructor is called" << RESET << std::endl;
+	std::cout << ON_RED << name << "'s destructor is called" << RESET << std::endl;
 }

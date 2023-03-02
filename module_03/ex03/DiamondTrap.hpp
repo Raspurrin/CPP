@@ -11,7 +11,6 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
 	protected:
-
 		std::string	name;
 		int32_t		max_points;
 		int32_t		hitpoints;

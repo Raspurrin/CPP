@@ -11,7 +11,7 @@ class FragTrap : virtual public ClapTrap
 	public:
 		FragTrap();
 		FragTrap(std::string name);
-		~FragTrap(void);
+		virtual ~FragTrap(void);
 };
 
 #endif

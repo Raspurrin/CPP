@@ -13,6 +13,7 @@
 # define SKY		"\033[0;36m"
 
 # define ON_RED 	"\033[41m"
+# define ON_YELLOW	"\033[43m"
 # define ON_PURPLE	"\033[44m"
 # define ON_PINK	"\033[45m"
 
@@ -35,7 +36,7 @@ class ClapTrap
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &rhs);
 		ClapTrap &operator=(const ClapTrap &rhs);
-		~ClapTrap();
+		virtual ~ClapTrap();
 };
 
 #endif

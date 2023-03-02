@@ -10,5 +10,6 @@ int32_t	main(void)
 	diamondtrap.takeDamage(4);
 	diamondtrap.beRepaired(2);
 	diamondtrap.whoAmI();
+	diamondtrap.highFivesGuys();
 	return (0);
 }

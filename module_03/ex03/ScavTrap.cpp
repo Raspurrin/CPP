@@ -6,6 +6,8 @@ void	ScavTrap::guardGate(void)
 	std::cout << SKY << name << " is now in gatekeeper mode" << RESET << std::endl;
 }
 
+
+
 ScavTrap::ScavTrap(std::string name)
 {
 	this->hitpoints = 100;

@@ -6,8 +6,10 @@
 class ScavTrap : virtual public ClapTrap
 {
 	protected: 
-	int32_t	energypoints;
-	int32_t	init_energypoints;
+		int32_t	energypoints;
+	
+	protected:
+		void	set_energypoints();
 
 	public:
 		void	guardGate(void);

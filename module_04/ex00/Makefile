@@ -1,7 +1,10 @@
 SRCS =	main.cpp \
 		Cat.cpp \
 		Dog.cpp \
-		Animal.cpp
+		Animal.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -g -std=c++98
 NAME = catdog

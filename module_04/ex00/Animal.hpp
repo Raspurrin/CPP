@@ -15,7 +15,7 @@ class	Animal
 	protected:
 		std::string	type;
 
-	protected:
+	public:
 		void		makeSound(void);
 		std::string	getType(void) {return type;};
 

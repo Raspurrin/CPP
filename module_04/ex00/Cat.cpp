@@ -8,7 +8,6 @@ void	Cat::makeSound(void)
 Cat::Cat(void) : 
 	Animal("cat")
 {
-	// this->type = "cat";
 	std::cout << ON_PURPLE << "Cat's constructor is called" << RESET << std::endl;
 }
 

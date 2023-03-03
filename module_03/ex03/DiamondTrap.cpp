@@ -9,7 +9,7 @@ void	DiamondTrap::whoAmI(void)
 DiamondTrap::DiamondTrap(std::string name)
 {
 	this->hitpoints = FragTrap::hitpoints;
-	this->energy_points = ScavTrap::energy_points;
+	this->energy_points = init_energypoints;
 	this->attack_dmg = FragTrap::attack_dmg;
 	this->max_points = FragTrap::hitpoints;
 	this->name = name;

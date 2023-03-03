@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 
+
 void	ScavTrap::guardGate(void)
 {
 	std::cout << SKY << name << " is now in gatekeeper mode" << RESET << std::endl;
@@ -19,6 +20,7 @@ ScavTrap::ScavTrap(void)
 {
 	this->hitpoints = 100;
 	this->energy_points = 50;
+	init_energypoints = this->energy_points;
 	this->attack_dmg = 20;
 	this->max_points = 100;
 	this->name = "scavtrap";

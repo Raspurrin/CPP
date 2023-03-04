@@ -1,14 +1,8 @@
-SRCS =	main.cpp \
-		AMateria.cpp \
-		Cure.cpp \
-		Ice.cpp \
-		Character.cpp \
-		MateriaSource.cpp
-
+SRCS = 	main.cpp \
+		Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-DEBUG = -fsanitize=address -g
-NAME = mess
+NAME = fixed
 CC = g++
 
 ifdef DEBUG
@@ -23,7 +17,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean: 
 	@rm -rf $(OBJS)

@@ -9,6 +9,8 @@
 # define RESET		"\033[0m"
 # define ON_YELLOW	"\033[43m"
 
+class AMateria;
+
 class MateriaSource : public IMateriaSource
 {
 	private:

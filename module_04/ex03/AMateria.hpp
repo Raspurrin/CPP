@@ -12,10 +12,16 @@
 # define ON_PURPLE	"\033[44m"
 # define ON_PINK	"\033[45m"
 
+#include "ICharacter.hpp"
+
+class ICharacter;
+
 class AMateria
 {
+	protected:
+		std::string type;
 	public:
-		std::string const &	getType() const; //Returns the materia type
+		std::string const &	getType() const ; //Returns the materia type
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
 
@@ -24,7 +30,7 @@ class AMateria
 		AMateria(const AMateria &rhs);
 		AMateria(std::string const & type);
 		AMateria &operator=(const AMateria &rhs);
-		~AMateria();
+		virtual ~AMateria();
 
 };
 

@@ -5,14 +5,14 @@ AMateria	*Cure::clone() const
 	return (new Cure);
 }
 
-void	AMateria::use(ICharacter& target)
+void	Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
 
-Cure::Cure(void) :
-	type("cure")
+Cure::Cure(void)
 {
+	type = "cure";
 	std::cout << ON_YELLOW << "Cure's constructor is called" << RESET << std::endl;
 }
 

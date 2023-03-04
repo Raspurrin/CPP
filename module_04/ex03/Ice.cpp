@@ -10,9 +10,9 @@ void	Ice::use(ICharacter& target)
 	std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
 }
 
-Ice::Ice(void) :
-	type("ice")
+Ice::Ice(void)
 {
+	type = "ice";
 	std::cout << ON_YELLOW << "Ice's constructor is called" << RESET << std::endl;
 }
 

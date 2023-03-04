@@ -5,6 +5,11 @@
 
 class ICharacter
 {
+	protected:
+		std::string	name = 0;
+		size_t		cur_idx = 0;
+		AMateria	*inventory[4];
+
 	public:
 		virtual ~ICharacter() {}
 		virtual std::string const & getName() const = 0;

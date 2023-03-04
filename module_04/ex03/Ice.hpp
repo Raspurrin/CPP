@@ -6,7 +6,8 @@
 
 class Ice : public AMateria
 {
-	public:
+	private:
+		const std::string	type;
 
 	public:
 		Ice(void);

@@ -6,6 +6,10 @@
 
 class Cure : public AMateria
 {
+	private:
+		private:
+		const std::string	type;
+
 	public:
 		Cure(void);
 		Cure(const Cure &rhs);

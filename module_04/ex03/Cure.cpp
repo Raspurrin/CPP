@@ -10,7 +10,8 @@ void	AMateria::use(ICharacter& target)
 	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }
 
-Cure::Cure(void)
+Cure::Cure(void) :
+	type("cure")
 {
 	std::cout << ON_YELLOW << "Cure's constructor is called" << RESET << std::endl;
 }

@@ -6,19 +6,12 @@
 
 class Character : public ICharacter
 {
-	private:
-		std::string	name;
-		AMateria	*inventory;
-
 	public:
 		std::string const & getName() {return name;};
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, Character& target);
 
 	public:
 		Character(void);
-		Character(std::string name) : name(name) {};
+		Character(std::string name);
 		Character(const Character &rhs);
 		Character &operator=(const Character &rhs);
 		virtual ~Character(void);

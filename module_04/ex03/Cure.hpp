@@ -11,6 +11,11 @@ class Cure : public AMateria
 		const std::string	type;
 
 	public:
+		std::string const &	getType() const {return type;};
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
+
+	public:
 		Cure(void);
 		Cure(const Cure &rhs);
 		Cure &operator=(const Cure &rhs);

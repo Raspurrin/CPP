@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-void ICharacter::equip(AMateria* m)
+void Character::equip(AMateria* m)
 {
 	if (this->cur_idx >= 4)
 	{
@@ -11,7 +11,7 @@ void ICharacter::equip(AMateria* m)
 	this->cur_idx++;
 }
 
-void ICharacter::unequip(int idx)
+void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= 4)
 	{
@@ -21,7 +21,7 @@ void ICharacter::unequip(int idx)
 	this->inventory[idx] = NULL;
 }
 
-void ICharacter::use(int idx, ICharacter& target)
+void Character::use(int idx, Character& target)
 {
 	if (idx < 0 || idx >= 4)
 	{

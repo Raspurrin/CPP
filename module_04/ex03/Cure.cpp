@@ -1,8 +1,8 @@
 #include "Cure.hpp"
 
-AMateria	*AMateria::clone(void) const
+AMateria	*Cure::clone() const
 {
-	// ?
+	return (new Cure);
 }
 
 void	AMateria::use(ICharacter& target)

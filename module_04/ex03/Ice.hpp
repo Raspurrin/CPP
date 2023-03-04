@@ -10,6 +10,11 @@ class Ice : public AMateria
 		const std::string	type;
 
 	public:
+		std::string const &	getType() const {return type;};
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
+
+	public:
 		Ice(void);
 		Ice(const Ice &rhs);
 		Ice &operator=(const Ice &rhs);

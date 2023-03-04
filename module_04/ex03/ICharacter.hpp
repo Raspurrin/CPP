@@ -1,17 +1,17 @@
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
+#include <iostream>
 #include "AMateria.hpp"
 
 class ICharacter
 {
 	protected:
-		std::string	name = 0;
-		size_t		cur_idx = 0;
+		std::string	name;;
+		size_t		cur_idx;;
 		AMateria	*inventory[4];
 
 	public:
-		virtual ~ICharacter() {}
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;

@@ -1,10 +1,10 @@
 SRCS =	main.cpp \
-		Cat.cpp \
-		Dog.cpp \
-		Animal.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		AMateria.cpp \
+		Cure.cpp \
+		Ice.cpp \
+		ICharacter.cpp \
+		Character.cpp \
+		MateriaSource.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -g -std=c++98

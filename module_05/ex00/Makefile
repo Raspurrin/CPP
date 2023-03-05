@@ -1,5 +1,6 @@
 SRCS = 	main.cpp \
-		Fixed.cpp
+		Bureaucrat.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = fixed

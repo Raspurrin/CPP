@@ -4,14 +4,27 @@ int32_t	main(void)
 {
 	Bureaucrat goiom(150);
 
+	std::cout << "grade: " << goiom.getGrade() << std::endl;
 	try
 	{
-		goiom.incGrade();
+		try
+		{
+			goiom.getGrade();
+			goiom.decGrade();
+		}
+		catch(Bureaucrat::BaseException)
+		{
+			std::cerr << "dun fucked up" << std::endl;
+			throw;
+		}
 	}
-	catch(const std::exception::GradeTooHighException e)
+	catch(Bureaucrat::GradeTooLowException a)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << a.what() << std::endl;
 	}
-	
+	catch(Bureaucrat::GradeTooHighException)
+	{
+		std::cerr << "we did rethrow, but your grade high as snow" << std::endl;
+	}
 	return (0);
 }

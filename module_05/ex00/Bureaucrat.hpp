@@ -7,24 +7,29 @@
 # define ON_YELLOW	"\033[43m"
 # define RESET		"\033[0m"
 
+
+
 class Bureaucrat
 {
-	private: 
+	private:
 		const std::string	name;
 		int32_t				grade;
 
 	public:
-		// std::string	getName();
+		std::string	getName();
 		int32_t		getGrade();
 		void		incGrade();
-		// void		decGrade();
-	
-	class GradeTooHighException : public std::exception
+		void		decGrade();
+
+	class BaseException : public std:: exception {};
+	class GradeTooHighException : public BaseException
 	{
 	};
 
-	class GradeTooLowException : public std::exception
+	class GradeTooLowException : public BaseException
 	{
+		public:
+			const char *what() const throw();
 	};
 
 	public:

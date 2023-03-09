@@ -21,36 +21,37 @@ void	Contact::displayRow(int32_t	index)
 
 void	Contact::displayWithSpaces(std::string prompt, std::string contactInfo)
 {
-	std::cout << "    | ";
-	std::cout << std::left << std::setw(16) << prompt << std::left << std::setw(20) << contactInfo << "|" << std::endl;
+	std::cout << SCROLL << "    | " << PROMPT;
+	std::cout << std::left << std::setw(16) << prompt;
+	std::cout << RESET << std::left << std::setw(20) << contactInfo << SCROLL << "|" << RESET << std::endl;
 }
 
-void	Contact::ScrollingSecret(void)
+void	Contact::scrollingText(std::string prompt, std::string contactInfo)
 {
-	int32_t	len = _darkestSecret.size() - 20;
+	displayWithSpaces(prompt, contactInfo.substr(0, 20));
+	int32_t	len = contactInfo.size() - 20;
 	for (size_t i = 0; len > 0 ; i++)
 	{
-		std::cout << "    | ";
-		std::cout << std::setw(36) << std::left << _darkestSecret.substr(i * 36, 36) << std::setfill(' ')  << '|' << std::endl;
+		std::cout << SCROLL << "    | " << RESET;
+		std::cout << std::setw(36) << std::left << contactInfo.substr(i * 36, 36) << std::setfill(' ') << SCROLL << '|' << std::endl;
 		len -= 36;
 	}
 }
 
 void	Contact::displayFull(void)
 {
-	std::cout << "   _______________________________________" << std::endl;
+	std::cout << SCROLL << "   _______________________________________" << std::endl;
 	std::cout << "/ \\                                       \\" << std::endl;
 	std::cout << "|   |                                     |" << std::endl;
 	std::cout << " \\_ |                                     |" << std::endl;
-	displayWithSpaces("First name: ", _firstName);
-	displayWithSpaces("Last name: ", _lastName);
-	displayWithSpaces("Nickname: ", _nickName);
-	displayWithSpaces("Phonenumber: ", _phoneNumber);
-	displayWithSpaces("Darkest secret: ", _darkestSecret.substr(0, 20));
-	ScrollingSecret();
-	std::cout << "    |   _____________________________________ " << std::endl;
+	scrollingText("First name: ", _firstName);
+	scrollingText("Last name: ", _lastName);
+	scrollingText("Nickname: ", _nickName);
+	scrollingText("Phonenumber: ", _phoneNumber);
+	scrollingText("Darkest secret: ", _darkestSecret);
+	std::cout << SCROLL << "    |   _____________________________________ " << std::endl;
     std::cout << "    |  /                                    /" << std::endl;
-    std::cout << "    \\_/____________________________________/" << std::endl;
+    std::cout << "    \\_/____________________________________/" << RESET << std::endl;
 }
 
 bool	Contact::invalid(void)
@@ -59,7 +60,8 @@ bool	Contact::invalid(void)
 	return (false);
 }
 
-bool	Contact::verifyContactInfo(std::string contactInfo, int verification(int c), int32_t min_range, int32_t max_range)
+bool	Contact::verifyContactInfo(std::string contactInfo, int verification(int c), \
+												int32_t min_range, int32_t max_range)
 {
 	if (contactInfo.length() > max_range || contactInfo.length() < min_range)
 		return (invalid());
@@ -93,4 +95,8 @@ void	Contact::newContact(void)
 	getLineCheck(_phoneNumber, "Enter the phone number: ", isdigit, 10, 10);
 	getLineCheck(_darkestSecret, "Also enter their darkest deepest secret pls: ", \
 													isalpha, 0, _darkestSecret.max_size());
+}
+
+Contact::Contact()
+{
 }

@@ -12,8 +12,9 @@
 # define PURPLE		"\033[0;34m"
 # define PINK		"\033[0;35m"
 # define SKY		"\033[0;36m"
+# define SCROLL		YELLOW
+# define PROMPT		BLACK		
 
-void	getLineCheck(std::string &str, std::string msg);
 
 class EofException : public std::exception
 {
@@ -29,9 +30,9 @@ class Contact
 			std::string	_darkestSecret;
 
 	private:
-		void	displayWithSpaces(std::string prompt, std::string contactInfo);
-		void	ScrollingSecret(void);
 		bool	invalid(void);
+		void	displayWithSpaces(std::string prompt, std::string contactInfo);
+		void	scrollingText(std::string prompt, std::string contactInfo);
 		bool	verifyContactInfo(std::string str, int verification(int c), \
 									int32_t min_range, int32_t max_range);
 
@@ -39,7 +40,9 @@ class Contact
 		void	newContact(void);
 		void	getLineCheck(std::string &contactInfo, std::string msg, \
 							int (*verification)(int c), int32_t min_range, int64_t max_range);
-		bool	compFirstName(std::string name);
 		void	displayFull(void);
 		void	displayRow(int32_t	index);
+
+	public:
+		Contact();
 };

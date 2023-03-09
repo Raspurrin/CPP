@@ -2,15 +2,10 @@ SRCS = 	main.cpp \
 		Phonebook.cpp \
 		Contact.cpp
 OBJS = $(SRCS:.cpp=.o)
+DEBUG = -fsanitize=address -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = phonebook
 CC = g++
-
-ifdef DEBUG
-	DEBUG = -fsanitize=address -g
-else
-	DEBUG = 
-endif
 
 all: $(NAME)
 

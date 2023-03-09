@@ -15,10 +15,11 @@ class Phonebook
 	private:
 		void	add(void);
 		void	search(void);
-		bool	checkDupContact(std::string contact);
+		void	showEntries(void);
+		void	randomMessage(void);
 
 	private:
-		Contact 	_contacts[8];
+		Contact		_contacts[8];
 		int32_t		_contactAmount;
 		int32_t		_index;
 

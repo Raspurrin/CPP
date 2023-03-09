@@ -1,5 +1,6 @@
 SRCS = 	main.cpp \
-		phonebook.cpp
+		Phonebook.cpp \
+		Contact.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = phonebook

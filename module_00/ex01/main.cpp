@@ -1,21 +1,10 @@
-#include "classes.hpp"
+#include "Phonebook.hpp"
 
 int main(int argc, char const *argv[])
 {
+	// std::cout << "hi?" << std::endl;
 	Phonebook	phonebook;
-	std::string input;
-
-	while (true)
-	{
-		std::cout << "Please enter a command: ADD, SEARCH or EXIT: ";
-		std::cin >> input;
-
-		if (input == "EXIT")
-			break;
-		else if (input == "SEARCH")
-			phonebook.search();
-		else if (input == "ADD")
-			phonebook.add();
-	}
+	phonebook.start();
+	
 	return (0);
 }

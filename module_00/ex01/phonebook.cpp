@@ -7,11 +7,14 @@ void	Phonebook::search(void)
 
 	if (_contactAmount == 0)
 	{
-		std::cout << PINK << "Rip no friends...\nYet! Keep searchin', I believe in you :D" << RESET << std::endl;
+		std::cout << SKY << "Rip no friends...\nYet! Keep searchin', I believe in you :D" << RESET << std::endl;
 		return;
 	}
+	std::cout << SKY << "=========================================" << std::endl;
+	std::cout << 		"|   |First name:|Last name: |Nickname:  |" << std::endl;
 	for (size_t i = 0; i < _contactAmount; i++)
 		_contacts[i].displayRow(i + 1);
+	std::cout << SKY << "=========================================" << std::endl;
 	std::cout << PINK << "Which contact do you want to view? " << RESET;
 	std::getline(std::cin, input);
 	input_nbr = atoi(input.c_str());

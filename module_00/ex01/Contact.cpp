@@ -7,14 +7,12 @@ void	displayCell(std::string str)
 	str_size = str.size();
 	if (str_size > 10)
 		str = str.substr(0, 9) + '.';
-	if (str_size < 10)
-		std::cout << SKY << std::setw(10 - str_size) << ' ';
-	std::cout << SKY << str << "|" << RESET;
+	std::cout << SKY << std::setw(11) << std::left << str << "|" << RESET;
 }
 
 void	Contact::displayRow(int32_t	index)
 {
-	displayCell(std::to_string(index));
+	std::cout << SKY << "|" << RESET << std::to_string(index) << "." << SKY " |" << RESET;
 	displayCell(_firstName);
 	displayCell(_lastName);
 	displayCell(_nickName);
@@ -83,7 +81,7 @@ void	Contact::getLineCheck(std::string &contactInfo, std::string prompt, \
 	{
 		if (std::cin && verifyContactInfo(contactInfo, verification, min_range, max_range))
 			break;
-		std::cout << prompt;
+		std::cout << GREEN << prompt << RESET;
 	}
 }
 

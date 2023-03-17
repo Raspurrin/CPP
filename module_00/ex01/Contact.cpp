@@ -12,7 +12,7 @@ void	displayCell(std::string str)
 
 void	Contact::displayRow(int32_t	index)
 {
-	std::cout << SKY << "|" << RESET << std::to_string(index) << "." << SKY " |" << RESET;
+	std::cout << SKY << "|" << RESET << std::to_string((index % 8) + 1) << "." << SKY " |" << RESET;
 	displayCell(_firstName);
 	displayCell(_lastName);
 	displayCell(_nickName);
@@ -63,7 +63,7 @@ bool	Contact::invalid(void)
 bool	Contact::verifyContactInfo(std::string contactInfo, int verification(int c), \
 												int32_t min_range, int32_t max_range)
 {
-	if (contactInfo.length() > max_range || contactInfo.length() < min_range)
+	if (contactInfo.length() > (size_t)max_range || contactInfo.length() < (size_t)min_range)
 		return (invalid());
 	for (size_t i = 0; i < contactInfo.length(); i++)
 	{
@@ -74,7 +74,7 @@ bool	Contact::verifyContactInfo(std::string contactInfo, int verification(int c)
 }
 
 void	Contact::getLineCheck(std::string &contactInfo, std::string prompt, \
-							int (*verification)(int c), int32_t min_range, int64_t max_range)
+							int (*verification)(int c), size_t min_range, int64_t max_range)
 {
 	if (std::cin.eof())
 		throw(EofException());
@@ -92,9 +92,9 @@ void	Contact::newContact(void)
 	getLineCheck(_firstName, "Enter the first name: ", isalpha, 0, _firstName.max_size());
 	getLineCheck(_lastName, "Enter the last name: ", isalpha, 0, _lastName.max_size());
 	getLineCheck(_nickName, "Enter a nickname: ", isalpha, 0, _nickName.max_size());
-	getLineCheck(_phoneNumber, "Enter the phone number: ", isdigit, 10, 10);
+	getLineCheck(_phoneNumber, "Enter the phone number: ", isdigit, 0, 10);
 	getLineCheck(_darkestSecret, "Also enter their darkest deepest secret pls: ", \
-													isalpha, 0, _darkestSecret.max_size());
+													isascii_space, 0, _darkestSecret.max_size());
 }
 
 Contact::Contact()

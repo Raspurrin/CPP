@@ -1,4 +1,5 @@
-#pragma one
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
 # include <iostream>
 # include <stdint.h>
@@ -15,6 +16,7 @@
 # define SCROLL		YELLOW
 # define PROMPT		BLACK		
 
+int	isascii_space(int c);
 
 class EofException : public std::exception
 {
@@ -39,10 +41,12 @@ class Contact
 	public:
 		void	newContact(void);
 		void	getLineCheck(std::string &contactInfo, std::string msg, \
-							int (*verification)(int c), int32_t min_range, int64_t max_range);
+							int (*verification)(int c), size_t min_range, int64_t max_range);
 		void	displayFull(void);
 		void	displayRow(int32_t	index);
 
 	public:
 		Contact();
 };
+
+#endif

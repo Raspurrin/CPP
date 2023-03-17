@@ -5,8 +5,8 @@ void	Phonebook::showEntries(void)
 	
 	std::cout << SKY << "=========================================" << std::endl;
 	std::cout << 		"|   |" << RESET << "First name:" << SKY << "|" << RESET << "Last name: " << SKY << "|" << RESET << "Nickname:  " << SKY << "|" << std::endl;
-	for (size_t i = 0; i < _contactAmount; i++)
-		_contacts[i].displayRow(i + 1);
+	for (int32_t i = 0; i < _contactAmount; i++)
+		_contacts[i].displayRow(i);
 	std::cout << SKY << "=========================================" << std::endl;
 }
 
@@ -22,7 +22,7 @@ void	Phonebook::randomMessage(void)
 
 void	Phonebook::search(void)
 {
-	size_t		input_nbr;
+	int32_t		input_nbr;
 	std::string	input;
 
 	if (_contactAmount == 0)
@@ -42,12 +42,10 @@ void	Phonebook::search(void)
 
 void	Phonebook::add(void)
 {
-	_contacts[_index].newContact();
-	if (_contactAmount <= 8)
+	_contacts[_index % 8].newContact();
+	if (_contactAmount < 8)
 		_contactAmount++;
 	_index++;
-	if (_index == 8)
-		_index = 0;
 }
 
 void	Phonebook::start(void)

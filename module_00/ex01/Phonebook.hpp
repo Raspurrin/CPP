@@ -1,4 +1,5 @@
-#pragma one
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include <iostream>
 # include <stdint.h>
@@ -27,3 +28,5 @@ class Phonebook
 		Phonebook();
 		~Phonebook();
 };
+
+#endif

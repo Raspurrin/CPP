@@ -1,19 +1,20 @@
 SRCS = 	main.cpp \
 		Phonebook.cpp \
-		Contact.cpp
+		Contact.cpp \
+		utils.cpp
 OBJS = $(SRCS:.cpp=.o)
 DEBUG = -fsanitize=address -g
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = phonebook
-CC = g++
+CC = c++
 
 all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
 
 clean: 
 	@rm -rf $(OBJS)

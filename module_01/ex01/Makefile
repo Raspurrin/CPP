@@ -1,5 +1,6 @@
 SRCS = 	main.cpp \
-		zombieHorde.cpp
+		zombieHorde.cpp \
+		Zombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = phonebook

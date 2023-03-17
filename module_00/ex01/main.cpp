@@ -1,6 +1,6 @@
 #include "Phonebook.hpp"
 
-int main(int argc, char const *argv[])
+int main(void)
 {
 	// std::cout << "hi?" << std::endl;
 	Phonebook	phonebook;

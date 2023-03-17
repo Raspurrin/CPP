@@ -2,16 +2,22 @@
 # define ZOMBIE_HPP
 
 #include <iostream>
-#include <stdint.h>
 
 class Zombie
 {
 	private:
-		std::string name;
+		std::string _name;
+
 	public:
+		void announce(void);
+		void randomChump(std::string name);
+		Zombie	*newZombie(std::string name);	
+		Zombie	*zombieHorde(int N, std::string name);	
+
+	public:
+		Zombie(std::string name);
 		Zombie();
 		~Zombie();
-		Zombie	*zombieHorde(int N, std::string name);
 };
 
 #endif

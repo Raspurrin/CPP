@@ -9,18 +9,8 @@ Zombie	*Zombie::zombieHorde(int N, std::string name)
 	zombieHorde = new Zombie[N];
 	while (i < N)
 	{
-		zombieHorde[i].name = name;
+		zombieHorde[i] = Zombie(name);
 		i++;
 	}
 	return (zombieHorde);
-}
-
-Zombie::Zombie()
-{
-	return;
-}
-
-Zombie::~Zombie()
-{
-	return;
 }

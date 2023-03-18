@@ -1,4 +1,5 @@
 #include "Account.hpp"
+#include <ctime>
 
 # define RESET		"\033[0m"
 # define RED		"\033[0;31m"
@@ -33,57 +34,59 @@ int	Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
-	std::cout << SKY << "================ ACCOUNT INFOS ================" << std::endl;
-	std::cout << "Amount of acounts: " << _nbAccounts << std::endl;
-	std::cout << "Total amount across acounts: " << _totalAmount << std::endl;
-	std::cout << "Total deposits across acounts: " << _totalNbDeposits << std::endl;
-	std::cout << "Total withdrawals across acounts: " << _totalNbWithdrawals << std::endl;
-	std::cout << "==============================================" << RESET << std::endl;
+	_displayTimestamp();
+	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:" << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
 
 void	Account::makeDeposit(int deposit)
 {
+	_displayTimestamp();
 	if (deposit <= 0)
 	{
-		std::cout << RED << "Bro. That's not depositing anything o-o" << RESET << std::endl;
+		std::cout << "index:" << _accountIndex << "p_amount:" << _amount << ";deposit:refused" << std::endl;
 		return;
 	}
-	std::cout << YELLOW << "Deposited " << deposit << " to account: " << _accountIndex << RESET << std::endl;
+	_totalNbDeposits++;
+	_nbDeposits++;
+	std::cout << "index:" << _accountIndex << "p_amount:" << _amount << ";deposit:" << deposit << ";amount:" << _amount + deposit << ";nb_deposits:" << _nbDeposits << std::endl;
 	_amount += deposit;
 	_totalAmount += deposit;
-	_totalNbDeposits ++;
-	_nbDeposits++;
 }
 
 bool	Account::makeWithdrawal(int withdrawal)
 {
+	_displayTimestamp();
 	if (_amount - withdrawal < 0)
 	{
-		std::cout << RED << "You don't have that much stored on this account! " << "(Balance: " << _amount << " withdrawal request: " << withdrawal << ")" << RESET << std::endl;
+		std::cout << "index:" << _accountIndex << "p_amount:" << _amount << ";withdrawal:refused" << std::endl;
 		return (false);
 	}
-	std::cout << YELLOW << "Withdrew " << withdrawal << " from account: " << _accountIndex << RESET << std::endl;
-	_amount -= withdrawal;
-	_totalAmount -= withdrawal;
 	_totalNbWithdrawals++;
 	_nbWithdrawals++;
+	std::cout << "index:" << _accountIndex << "p_amount:" << _amount << ";withdrawal:" << withdrawal << ";amount:" << _amount - withdrawal << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
+	_amount -= withdrawal;
+	_totalAmount -= withdrawal;
 	return (true);
 }
 
 int		Account::checkAmount(void) const
 {
-	std::cout << "Amount is: " << _amount << std::endl;
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 	return (_amount);
 }
 
 void	Account::displayStatus(void) const
 {
-	std::cout << GREEN << "Status account " <<_accountIndex << ": ";
-	std::cout << "Amount: " << _amount <<", deposits: " << _nbDeposits << ", withdrawals: " <<_nbWithdrawals << RESET << std::endl; 
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
 }
 
 void	Account::_displayTimestamp(void)
 {
+	time_t now = time(0);
+	tm *time = localtime(&now);
+	std::cout << "[" << time->tm_year + 1900 << time->tm_mday << time->tm_mon + 1 << "_" << time->tm_hour << time->tm_min << time->tm_sec << "] "; 
 }
 
 Account::Account(void) :
@@ -109,8 +112,12 @@ Account::Account(int initial_deposit) :
 	else
 		_amount = 0;
 	_nbAccounts++;
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";created" << std::endl;
 }
 
 Account::~Account(void)
 {
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }

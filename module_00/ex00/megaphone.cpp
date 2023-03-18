@@ -17,10 +17,7 @@ int32_t main(int argc, char *argv[])
 	if (argc < 2)
 		return (std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl, 0);
 	while (argv[i])
-	{
 		str_upper(argv[i++]);
-		std::cout << " ";
-	}
 	std::cout << std::endl;
 	return (0);
 }

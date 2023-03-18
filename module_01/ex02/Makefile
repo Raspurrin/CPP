@@ -4,16 +4,10 @@ CFLAGS = -Wall -Werror -Wextra -std=c++98
 NAME = strref
 CC = g++
 
-ifdef DEBUG
-	DEBUG = -fsanitize=address -g
-else
-	DEBUG = 
-endif
-
 all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

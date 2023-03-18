@@ -2,22 +2,16 @@ SRCS = 	main.cpp \
 		Zombie.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = BraiiiiiiinnnzzzZ
+NAME = brains
 CC = g++
-
-ifdef DEBUG
-	DEBUG = -fsanitize=address -g
-else
-	DEBUG = 
-endif
 
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
+	$(CC) $(CFLAGS) -c $^ -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 clean: 
 	@rm -rf $(OBJS)

@@ -2,15 +2,12 @@
 
 Zombie	*Zombie::zombieHorde(int N, std::string name)
 {
-	size_t	i;
 	Zombie	*zombieHorde;
 
-	i = 0;
+	std::cout << PINK << "THE HORDE OF " << name << "'s HAS ARRIVED!" << std::endl;
 	zombieHorde = new Zombie[N];
-	while (i < N)
-	{
-		zombieHorde[i] = Zombie(name);
-		i++;
-	}
+	for (int i = 0; i < N; i++)
+		zombieHorde[i].setName(name);
+	std::cout << RESET;
 	return (zombieHorde);
 }

@@ -81,7 +81,7 @@ void	Contact::getLineCheck(std::string &contactInfo, std::string prompt, \
 	std::cout << GREEN << prompt << RESET;
 	while (std::getline(std::cin, contactInfo))
 	{
-		if (std::cin && verifyContactInfo(contactInfo, verification, min_range, max_range))
+		if (!contactInfo.empty() && verifyContactInfo(contactInfo, verification, min_range, max_range))
 			break;
 		std::cout << GREEN << prompt << RESET;
 	}

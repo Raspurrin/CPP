@@ -11,7 +11,7 @@ class HumanA
 
 	public:
 		void	attack();
-		void	setWeapon(Weapon weapon);
+		void	setWeapon(Weapon *weapon);
 
 	public:
 		HumanA(std::string name, Weapon *weapon);

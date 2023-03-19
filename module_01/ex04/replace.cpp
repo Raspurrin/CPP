@@ -25,7 +25,7 @@ int32_t	main(int32_t argc, char **argv)
 	std::string		infile_name;
 
 	if (argc != 4)
-		return (std::cout << "You must provide 3 argumemts: a filename and two strings" << std::endl, 0);
+		return (std::cout << "You must provide 3 arguments: a filename and two strings" << std::endl, 0);
 	infile.open(argv[1], std::ios::in);
 	if (!infile)
 		return(std::cout << "You used a wrong filename" << std::endl, 0);

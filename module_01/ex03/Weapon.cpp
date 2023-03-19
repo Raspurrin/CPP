@@ -1,6 +1,6 @@
 #include "Weapon.hpp"
 
-const std::string &Weapon::getType()
+const std::string &Weapon::getType() const
 {
 	const std::string &typeRef = _type;
 

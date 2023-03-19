@@ -10,8 +10,8 @@
 class Harl
 {
 	private:
+		void			(Harl::*func_arr[4])();
 		static std::string	function_names[4];
-		void			(*func_arr[4])();
 
 	public:
 		void	filter(std::string level);

@@ -7,7 +7,7 @@ void	Harl::complain(std::string level)
 	for (size_t i = 0; i < 4; i++)
 	{
 		if (function_names[i] == level)
-			return ((*func_arr[i])());
+			return ((this->*func_arr[i])());
 	}
 	std::cout << "couldn't find that level" << std::endl;
 }
@@ -28,6 +28,7 @@ void	Harl::filter(std::string level)
 					this->warning();
 				case (3) :
 					this->error();
+					return;
 			}
 		}
 	}
@@ -56,12 +57,10 @@ void	Harl::error(void)
 
 Harl::Harl()
 {
-	// function_names[0] = "debug";
-	// function_names[1] = "info";
-	// function_names[2] = "warning";
-	// function_names[3] = "error";
-	// func_arr[0] = &Harl::debug;
-	// func_arr[4]() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	func_arr[0] = &Harl::debug;
+	func_arr[1] = &Harl::info;
+	func_arr[2] = &Harl::warning;
+	func_arr[3] = &Harl::error;
 }
 
 Harl::~Harl()

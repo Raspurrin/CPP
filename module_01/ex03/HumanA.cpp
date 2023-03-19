@@ -6,9 +6,9 @@ void	HumanA::attack()
 	return;
 }
 
-void	HumanA::setWeapon(Weapon weapon)
+void	HumanA::setWeapon(Weapon *weapon)
 {
-	weapon = weapon;
+	_weapon = weapon;
 }
 
 HumanA::HumanA(std::string name, Weapon *weapon)

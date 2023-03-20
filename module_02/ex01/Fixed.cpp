@@ -12,10 +12,30 @@ void Fixed::setRawBits(int const raw)
 	this->value = raw;
 }
 
+float	Fixed::toFloat(void) const
+{
+}
+
+int		Fixed::toInt(void) const
+{
+}
+
 Fixed::Fixed()
 {
 	this->value = 0;
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int nbr)
+{
+	value = nbr << fractional_bits;
+}
+
+Fixed::Fixed(const float nbr)
+{
+	// float	tmp;
+	// value = nbr * (2^(fractional_bits));
+	value = nbr * (1 << fractional_bits);
 }
 
 Fixed::Fixed(const Fixed &rhs)

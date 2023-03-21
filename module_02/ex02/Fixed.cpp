@@ -117,12 +117,21 @@ bool	Fixed::operator!=(const Fixed &rhs)
  */
 Fixed	Fixed::operator+(const Fixed &rhs)
 {
-	int32_t	whole;
-	int32_t	remainder;
+	int32_t	result;
 
-	whole = (value >> fractional_bits) + (rhs.value >> rhs.fractional_bits);
-	remainder = (value & (1 << fractional_bits) - 1) + (rhs.value & (1 << rhs.fractional_bits));
-	remainder = remainder & (1 << fractional_bits);
+	result = 0;
+	result = (value + rhs.value);
+	//result += (value & ((1 << fractional_bits) - 1)) + (rhs.value & ((1 << rhs.fractional_bits) - 1));
+	std::cout << "test:" << result << std::endl;
+	value = result;
+	// std::cout << "result: " << result << std::endl;
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & ((1 << fractional_bits) - 1)) + (rhs.value & ((1 << fractional_bits) - 1));
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & ((1 << fractional_bits) - 1)) + (rhs.value >> rhs.fractional_bits);
+	// std::cout << "wtf: " << (value & ((1 << fractional_bits) - 1)) + (value >> fractional_bits) << std::endl;
+	// std::cout << "result: " << result << std::endl;
+	// result += (value * rhs.value);
 	return (*this);
 }
 
@@ -133,19 +142,41 @@ Fixed	Fixed::operator-(const Fixed &rhs)
 
 	whole = (value >> fractional_bits) - (rhs.value >> rhs.fractional_bits);
 	remainder = (value & (1 << fractional_bits) - 1) - (rhs.value & (1 << rhs.fractional_bits));
-	remainder = remainder & (1 << fractional_bits);
-	return (*this);
+	remainder = remainder & ((1 << fractional_bits) - 1);
+	value = (whole + remainder);
+	return (value);
 }
 
+/**
+ * 32 - 8 
+ * 32 ^ 2 - 8 ^ 2
+ */
 Fixed	Fixed::operator*(const Fixed &rhs)
 {
-	int32_t	whole;
-	int32_t	remainder;
+	int32_t	result;
+	int32_t	mask;
 
-	whole = (value >> fractional_bits) * (rhs.value >> rhs.fractional_bits);
-	remainder = (value & (1 << fractional_bits) - 1) * (rhs.value & (1 << rhs.fractional_bits));
-	remainder = remainder & (1 << fractional_bits);
-	return (*this);
+	result = 0;
+	mask = (pow(2, sizeof(int32_t)) - pow(2, fractional_bits));
+	result += (value & (1 << mask) - 1); //* (rhs.value & (1 << mask) - 1);
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & (1 << fractional_bits) - 1) * (rhs.value & (1 << mask) - 1);
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & (1 << mask) - 1) * (rhs.value & (1 << fractional_bits) - 1);
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & (1 << fractional_bits) - 1) * (rhs.value & (1 << fractional_bits) - 1);
+	// std::cout << "result: " << result << std::endl;
+
+
+	// std::cout << "result: " << result << std::endl;
+	// result += (value >> fractional_bits) * (rhs.value & ((1 << fractional_bits) - 1));
+	
+	// result += (value & ((1 << fractional_bits) - 1)) * (rhs.value & ((1 << fractional_bits) - 1));
+	// std::cout << "result: " << result << std::endl;
+	// result += (value & ((1 << fractional_bits) - 1)) * (value >> fractional_bits);
+	// std::cout << "result: " << result << std::endl;
+	value = result;
+	return (value);
 }
 
 Fixed	Fixed::operator/(const Fixed &rhs)
@@ -155,20 +186,21 @@ Fixed	Fixed::operator/(const Fixed &rhs)
 
 	whole = (value >> fractional_bits) / (rhs.value >> rhs.fractional_bits);
 	remainder = (value & (1 << fractional_bits) - 1) / (rhs.value & (1 << rhs.fractional_bits));
-	remainder = remainder & (1 << fractional_bits);
-	return (*this);
+	remainder = remainder & ((1 << fractional_bits) - 1);
+	value = (whole + remainder);
+	return (value);
 }
 
 // increment/decrement
 Fixed &	Fixed::operator++(void)
 {
-	value += (1 << fractional_bits);
+	value += 1;
 	return (*this);
 }
 
 Fixed &	Fixed::operator--(void)
 {
-	value -= (1 << fractional_bits);
+	value -= 1;
 	return (*this);
 }
 
@@ -176,7 +208,7 @@ Fixed &	Fixed::operator++(int)
 {
 	Fixed &tmp = *this;
 
-	value += (1 << fractional_bits);
+	value += 1;
 	return (tmp);
 }
 
@@ -184,7 +216,7 @@ Fixed &	Fixed::operator--(int)
 {
 	Fixed &tmp = *this;
 
-	value -= (1 << fractional_bits);
+	value -= 1;
 	return (tmp);
 }
 
@@ -214,21 +246,22 @@ Fixed::Fixed(const Fixed &rhs)
 
 std::ostream&	operator<<(std::ostream &stream, Fixed const &fixed)
 {
-	float	decimal = 0;
-	size_t	shift = fixed.getFractionalBits();
+	// float	decimal = 0;
+	// size_t	shift = fixed.getFractionalBits();
 
-	stream << (fixed.getRawBits() >> fixed.getFractionalBits());
-	if (fixed.getRawBits() << (32 - fixed.getFractionalBits()) != 0)
-	{
-		for (size_t i = 0; i < fixed.getFractionalBits(); i++)
-		{
-			if (((fixed.getRawBits() >> shift) & 1) == 1)
-				decimal += ((1.f / (1 << i)));
-			shift--;
-		}
-		stream << "." << (int64_t)(decimal * pow(10, fixed.getFractionalBits()));
-	}
-	// alternative: std::cout << fixed.toFloat();
+	// stream << (fixed.getRawBits() >> fixed.getFractionalBits());
+	// if (fixed.getRawBits() << (32 - fixed.getFractionalBits()) != 0)
+	// {
+	// 	for (size_t i = 0; i < fixed.getFractionalBits(); i++)
+	// 	{
+	// 		if (((fixed.getRawBits() >> shift) & 1) == 1)
+	// 			decimal += ((1.f / (1 << i)));
+	// 		shift--;
+	// 	}
+	// 	stream << "." << (int64_t)(decimal * pow(10, fixed.getFractionalBits()));
+	// }
+	//std::cout << "so it does oveload << .-." << std::endl;
+	std::cout << fixed.toFloat();
 	return (stream);
 }
 

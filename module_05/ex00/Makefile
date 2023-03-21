@@ -14,8 +14,8 @@ endif
 
 all: $(NAME)
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
+%.o: %.cpp
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

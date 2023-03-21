@@ -41,8 +41,8 @@ void		Bureaucrat::incGrade()
 }
 
 Bureaucrat::Bureaucrat(int32_t grade) :
-	grade(grade),
-	name("moustache")
+	name("moustache"),
+	grade(grade)
 {
 	if (grade > 150 || grade < 1)
 	{
@@ -56,8 +56,8 @@ Bureaucrat::Bureaucrat(int32_t grade) :
 }
 
 Bureaucrat::Bureaucrat(void) :
-	grade(0),
-	name("moustache")
+	name("moustache"),
+	grade(0)
 {
 	std::cout << ON_YELLOW << "Bureaucrat's default constructor is called" << RESET << std::endl;
 }

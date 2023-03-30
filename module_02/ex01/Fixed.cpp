@@ -42,9 +42,6 @@ Fixed::Fixed(const int nbr)
 
 Fixed::Fixed(const float nbr)
 {
-	// double	tmp;
-	// tmp = nbr * (2^(fractional_bits));
-	// value = round(tmp);
 	value = nbr * ((1 << fractional_bits));
 	std::cout << "Float constructor called" << std::endl;
 }
@@ -64,20 +61,7 @@ Fixed &Fixed::operator=(const Fixed& rhs)
 
 std::ostream&	operator<<(std::ostream &stream, Fixed const &fixed)
 {
-	float	decimal = 0;
-	size_t	shift = fixed.getFractionalBits();
-
-	std::cout << (fixed.getRawBits() >> fixed.getFractionalBits());
-	if (fixed.getRawBits() << (32 - fixed.getFractionalBits()) != 0)
-	{
-		for (size_t i = 0; i < fixed.getFractionalBits(); i++)
-		{
-			if (((fixed.getRawBits() >> shift) & 1) == 1)
-				decimal += ((1.f / (1 << i)));
-			shift--;
-		}
-		std::cout << "." << (int64_t)(decimal * pow(10, fixed.getFractionalBits()));
-	}
+	stream << fixed.toFloat();
 	return (stream);
 }
 

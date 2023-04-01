@@ -2,21 +2,21 @@
 # define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
+#include "colour.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
-	private: 
-		std::string	name;
-		int32_t		max_points;
-		int32_t		hitpoints;
-		int32_t		energy_points;
-		int32_t		attack_dmg;
 	public:
 		void	highFivesGuys(void);
-	public:
+
+	private:
 		FragTrap();
+
+	public:
 		FragTrap(std::string name);
-		~FragTrap(void);
+		FragTrap(const FragTrap &rhs);
+		FragTrap &operator=(const FragTrap &rhs);
+		virtual ~FragTrap(void);
 };
 
 #endif

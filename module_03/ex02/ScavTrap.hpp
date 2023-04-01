@@ -4,19 +4,18 @@
 #include "ClapTrap.hpp"
 #include "colour.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class ScavTrap : public ClapTrap
 {
-	public:
-		void	guardGate(void);
-		
-	protected:
-		void	attack(const std::string& target);
-		int32_t	_initEnergyPoints;
+	private:
+		ScavTrap();
 
 	public:
-		ScavTrap();
+		void	guardGate(void);
+
+	public:
+		
 		ScavTrap(std::string name);
-		virtual ~ScavTrap(void);
+		~ScavTrap(void);
 };
 
 #endif

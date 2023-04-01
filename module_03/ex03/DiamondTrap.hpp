@@ -8,20 +8,23 @@
 #include <iostream>
 #include <stdint.h>
 
-class DiamondTrap : public ScavTrap, public FragTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	protected:
-		std::string	name;
-		int32_t		max_points;
-		int32_t		hitpoints;
-		int32_t		energy_points;
-		int32_t		attack_dmg;
-	public:
-		void	whoAmI(void);
+		std::string _clapTrapName;
 
 	public:
+		void	whoAmI(void);
+		using ScavTrap::attack;
+		std::string getClapTrapName(void);
+
+	private:
 		DiamondTrap();
+
+	public:
 		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap &rhs);
+		DiamondTrap &operator=(const DiamondTrap &rhs);
 		~DiamondTrap(void);
 };
 

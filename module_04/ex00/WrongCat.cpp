@@ -1,13 +1,13 @@
 #include "WrongCat.hpp"
 
-void	WrongCat::makeSound(void)
+void	WrongCat::makeSound(void) const
 {
-	std::cout << "brrrrauiuwww .w.~" << std::endl;
+	std::cout << "Wrongcat: brrrrauiuwww .w.~" << std::endl;
 }
 
-WrongCat::WrongCat(void) : 
-	Animal("WrongCat")
+WrongCat::WrongCat(void)
 {
+	_wrongtype = "WrongCat";
 	std::cout << ON_PURPLE << "WrongCat's constructor is called" << RESET << std::endl;
 }
 
@@ -19,7 +19,7 @@ WrongCat::WrongCat(const WrongCat &rhs)
 WrongCat &WrongCat::operator=(const WrongCat &rhs)
 {
 	std::cout << ON_PURPLE << "WrongCat's assignment operator is called" << RESET << std::endl;
-	this->type = rhs.type;
+	_wrongtype = rhs._wrongtype;
 	return (*this);
 }
 

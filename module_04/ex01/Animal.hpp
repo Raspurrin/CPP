@@ -1,6 +1,8 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
+#include "colour.hpp"
+
 #include <iostream>
 #include <stdint.h>
 
@@ -13,11 +15,12 @@
 class	Animal
 {
 	protected:
-		std::string	type;
+		std::string	_type;
 
 	public:
-		void		makeSound(void);
-		std::string	getType(void) {return type;};
+		virtual void	makeSound(void) const;
+		void		setType(std::string type);
+		std::string	getType(void) const;
 
 	public:
 		Animal(void);

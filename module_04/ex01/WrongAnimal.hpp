@@ -1,23 +1,20 @@
 #ifndef WRONGANIMAL_HPP
 # define WRONGANIMAL_HPP
 
+#include "colour.hpp"
+
 #include <iostream>
 #include <stdint.h>
-
-# define RESET		"\033[0m"
-# define ON_RED 	"\033[41m"
-# define ON_YELLOW	"\033[43m"
-# define ON_PURPLE	"\033[44m"
-# define ON_PINK	"\033[45m"
 
 class	WrongAnimal
 {
 	protected:
-		std::string	type;
+		std::string	_wrongtype;
 
 	public:
-		void		makeSound(void);
-		std::string	getType(void) {return type;};
+		virtual void	makeSound(void) const;
+		void			setType(std::string type);
+		std::string		getType(void) const;
 
 	public:
 		WrongAnimal(void);

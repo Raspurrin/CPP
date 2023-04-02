@@ -10,13 +10,12 @@ void Character::equip(AMateria* m)
 	std::cout << "in equip() - index: " << cur_idx << std::endl;
 	if (this->cur_idx >= 4)
 	{
-		std::cout << "Equiped too many materials already!" << std::endl;
+		std::cout << "Equipped too many materials already!" << std::endl;
 		return;
 	}
-	std::cout << "Equiped: " << m->getType() << std::endl;
-	std::cout << "hi" << std::endl;
+	std::cout << "Equipped: " << m->getType() << std::endl;
 	this->inventory[this->cur_idx] = m->clone();
-	std::cout << "Equiped: " << m->getType() << std::endl;
+	std::cout << "Equipped: " << m->getType() << std::endl;
 	this->cur_idx++;
 }
 

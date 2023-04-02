@@ -12,6 +12,10 @@ class Brain
 		std::string *ideas;
 
 	public:
+		std::string getIdea(int32_t i);
+		void		setIdea(int32_t i, std::string idea);
+
+	public:
 		Brain(void);
 		Brain(const Brain &rhs);
 		Brain &operator=(const Brain &rhs);

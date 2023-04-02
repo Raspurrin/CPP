@@ -1,23 +1,22 @@
 #ifndef DOG_HPP
 # define DOG_HPP
 
+#include "colour.hpp"
 #include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal
+class Dog : public Animal, public WrongAnimal
 {
-	private:
-		Brain	*brain;
-
 	public:
-		void		makeSound(void);
-		std::string	getType(void) {return type;};
+		Brain	*brain;
+		void	makeSound(void) const;
 
 	public:
 		Dog(void);
 		Dog(const Dog &rhs);
 		Dog &operator=(const Dog &rhs);
-		virtual ~Dog(void);
+		~Dog(void);
 };
 
 #endif

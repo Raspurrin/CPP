@@ -1,21 +1,17 @@
 SRCS =	main.cpp \
+		Brain.cpp \
 		Cat.cpp \
 		Dog.cpp \
 		Animal.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		WrongCat.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -g -std=c++98
+DEBUG = -fsanitize=address -g
 NAME = catdog
 CC = g++
 
-ifdef DEBUG
-	DEBUG = -fsanitize=address -g
-else
-	DEBUG = 
-endif
 
 all: $(NAME)
 
@@ -23,7 +19,7 @@ all: $(NAME)
 	@$(CC) $(CFLAGS) -c $(SRCS) -o $(OBJS)
 
 $(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(DEBUG) -o $(NAME)
 
 clean: 
 	@rm -rf $(OBJS)

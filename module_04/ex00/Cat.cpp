@@ -1,8 +1,8 @@
 #include "Cat.hpp"
 
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
-	std::cout << "Miiaaauuuuuwwww~" << std::endl;
+	std::cout << "Cat: miiaaauuuuuwwww~" << std::endl;
 }
 
 Cat::Cat(void) : 
@@ -19,7 +19,7 @@ Cat::Cat(const Cat &rhs)
 Cat &Cat::operator=(const Cat &rhs)
 {
 	std::cout << ON_PURPLE << "Cat's assignment operator is called" << RESET << std::endl;
-	this->type = rhs.type;
+	this->_type = rhs._type;
 	return (*this);
 }
 

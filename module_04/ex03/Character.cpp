@@ -64,7 +64,7 @@ Character::Character(const Character &rhs)
 
 Character &Character::operator=(const Character &rhs)
 {
-	std::cout << ON_YELLOW << "Character's assignment operator is called!" << RESET << std::endl;
+	std::cout << ON_YELLOW << "Character's assignment operator is called" << RESET << std::endl;
 	return (*this);
 }
 

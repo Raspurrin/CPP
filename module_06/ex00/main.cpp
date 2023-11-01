@@ -6,13 +6,11 @@
 
 int	main(void)
 {
-	std::string lol = "0.3f";
-	float aaa = static_cast<float>(atof(lol.c_str()));
-	std::cout << "test: " << aaa << std::endl;
+	ScalarConverter scalarConverter();
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 1:" << RESET << std::endl;
-		ScalarConverter scalarconverter("sdfsdf");
+		ScalarConverter::recognisingType("sdfsdf");
 	}
 	catch(const std::exception& e)
 	{
@@ -21,7 +19,7 @@ int	main(void)
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 2:" << RESET << std::endl;
-		ScalarConverter scalarconverter("-1");
+		ScalarConverter::recognisingType("-1");
 	}
 	catch(const std::exception& e)
 	{
@@ -30,7 +28,7 @@ int	main(void)
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 3:" << RESET << std::endl;
-		ScalarConverter scalarconverter("-inff");
+		ScalarConverter::recognisingType("-inff");
 	}
 	catch(const std::exception& e)
 	{
@@ -39,7 +37,7 @@ int	main(void)
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 4:" << RESET << std::endl;
-		ScalarConverter scalarconverter("+553.53f");
+		ScalarConverter::recognisingType("+553.53f");
 	}
 	catch(const std::exception& e)
 	{
@@ -48,7 +46,7 @@ int	main(void)
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 5:" << RESET << std::endl;
-		ScalarConverter scalarconverter("h");
+		ScalarConverter::recognisingType("h");
 	}
 	catch(const std::exception& e)
 	{
@@ -57,7 +55,7 @@ int	main(void)
 	try
 	{
 		std::cout << BLACK << "----------------------\nAttempt 6:" << RESET << std::endl;
-		ScalarConverter scalarconverter("2");
+		ScalarConverter::recognisingType("2");
 	}
 	catch(const std::exception& e)
 	{

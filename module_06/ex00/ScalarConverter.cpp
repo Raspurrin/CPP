@@ -4,9 +4,15 @@
 #define RED		"\033[0;31m"
 #define RESET	"\033[0m"
 
+std::string ScalarConverter::toBeConverted;
+double ScalarConverter::convertedDouble;
 
-void ScalarConverter::recognisingType()
+void ScalarConverter::recognisingType(std::string str)
 {
+	ScalarConverter::toBeConverted = str;
+	ScalarConverter::convertedDouble = atof(toBeConverted.c_str());
+
+	std::cout << "Input string is: " << toBeConverted << std::endl;
 	if (isPseudoType())
 	{
 		std::cout << "It's a pseudo type!" << std::endl;
@@ -129,12 +135,8 @@ bool ScalarConverter::isFloatType()
 	return (true);
 }
 
-ScalarConverter::ScalarConverter(std::string toBeConverted) :
-	toBeConverted(toBeConverted),
-	convertedDouble(atof(toBeConverted.c_str()))
+ScalarConverter::ScalarConverter(std::string toBeConverted)
 {
-	std::cout << "Input string is: " << toBeConverted << std::endl;
-	recognisingType();
 }
 
 ScalarConverter::ScalarConverter(const ScalarConverter &ref)

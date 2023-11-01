@@ -4,18 +4,22 @@
 
 class	ScalarConverter
 {
-	std::string	toBeConverted;
-	double		convertedDouble;
-
-	void	recognisingType();
-	void	converting();
-	void	pseudoConverting();
-	bool	isIntType();
-	bool	isPseudoType();
-	bool	isCharType();
-	bool	isFloatType();
-		
 	private: 
+		static std::string toBeConverted;
+		static double convertedDouble;
+
+	private:
+		static void	converting();
+		static void	pseudoConverting();
+		static bool	isIntType();
+		static bool	isPseudoType();
+		static bool	isCharType();
+		static bool	isFloatType();
+		
+	public:
+		static void	recognisingType(std::string str);
+
+	private:
 		ScalarConverter();
 
 	public:

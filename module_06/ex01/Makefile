@@ -3,7 +3,7 @@ SRCS = 	main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
-NAME = bureaucrat
+NAME = mess
 CC = g++
 
 ifdef DEBUG
